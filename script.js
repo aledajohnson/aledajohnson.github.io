@@ -10,13 +10,11 @@ onScroll();
 // ── The mirror: click to pop the buttons out ──
 const stage = document.querySelector('.stage');
 const mirror = document.getElementById('mirror');
-const hint = document.getElementById('hint');
 
 function setOpen(open) {
   stage.classList.toggle('open', open);
   mirror.setAttribute('aria-expanded', open);
   mirror.setAttribute('aria-label', open ? 'Close the menu' : 'Open the menu');
-  if (open) hint.classList.add('gone');
 }
 mirror.addEventListener('click', () => setOpen(!stage.classList.contains('open')));
 

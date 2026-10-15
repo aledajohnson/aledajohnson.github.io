@@ -73,13 +73,6 @@ button { font: inherit; color: inherit; }
 }
 .hero h1 { font: 400 clamp(64px, 9vw, 120px)/1 var(--sans); letter-spacing: -0.04em; margin: 0 0 40px; }
 .intro { font-size: clamp(18px, 1.8vw, 22px); line-height: 1.7; margin: 0 0 28px; }
-.hint {
-  font: 500 14px var(--mono); color: var(--cobalt); margin: 0;
-  transition: opacity .4s;
-}
-.hint::before { content: "→ "; display: inline-block; animation: nudge 1.4s ease-in-out infinite; }
-.hint.gone { opacity: 0; }
-@keyframes nudge { 50% { transform: translateX(6px); } }
 
 /* ═══════ THE MIRROR ═══════ */
 .stage {
@@ -102,11 +95,24 @@ button { font: inherit; color: inherit; }
     inset 0 0 50px rgba(255, 255, 255, .45),
     inset 0 -30px 60px rgba(0, 25, 80, .45);
   animation: float 7s ease-in-out infinite;
-  transition: transform .3s;
+  transition: transform .3s, filter .3s;
   -webkit-tap-highlight-color: transparent;
 }
+.mirror:hover, .mirror:focus-visible { filter: saturate(1.3) brightness(1.08); }
 .mirror:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 16px; }
 .mirror:active { transform: scale(.97); }
+.mirror-label {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font: 600 clamp(20px, 2.4vw, 28px) var(--sans); letter-spacing: .02em;
+  color: rgba(255, 255, 255, .85);
+  text-shadow: 0 2px 12px rgba(0, 20, 60, .5);
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+.mirror:hover .mirror-label, .mirror:focus-visible .mirror-label { opacity: 1; }
+.stage.open .mirror-label { display: none; }
 @keyframes float {
   0%, 100% { translate: 0 0; rotate: -1.5deg; }
   50% { translate: 0 -16px; rotate: 1.5deg; }
@@ -346,7 +352,6 @@ button { font: inherit; color: inherit; }
   :root { --mirror: min(72vw, 320px); }
   .hero { grid-template-columns: 1fr; gap: 24px; padding: 32px 16px 48px; min-height: 0; }
   .hero h1 { margin-bottom: 20px; }
-  .hint::before { content: "↓ "; }
   .stage { width: 100%; height: auto; display: flex; flex-direction: column; align-items: center; gap: 36px; }
   .mirror { position: relative; top: 0; left: 0; }
   .explore { position: static; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; min-height: 100px; }
