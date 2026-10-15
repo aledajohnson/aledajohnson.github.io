@@ -13,7 +13,7 @@ Every sentence on the site is in **`index.html`**, in page order. Each section s
 | Section in `index.html` | What's in it |
 |---|---|
 | `SEARCH RESULTS & LINK PREVIEWS` | `<title>`, description and preview text: what Google and Slack link previews show. |
-| `HERO` | "hello, I'm Aleda" and the intro paragraphs, over a moving-clouds panel, plus the menu on the right that scrolls to each section below. |
+| `HERO` | A small circular photo, "Hello, I'm Aleda" and the intro paragraphs, plus the menu on the right that scrolls to each section below. |
 | `RESUME` | Each role is a `<details>` dropdown. Add `open` to one to have it start expanded. |
 | `PERSONAL PROJECTS` | One `<div class="card">` per project, plus a row of `<div class="art-block">` entries under "Art Builds". |
 | `VAN BUILD` | Photo gallery. See below. |
