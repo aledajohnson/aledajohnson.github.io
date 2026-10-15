@@ -31,12 +31,8 @@
 <section class="hero">
   <div class="hero-text">
     <h1>hello,</h1>
-    <p class="intro">
-      here you'll find<br>
-      bits of wonder.<br>
-      experiments and ideas.<br>
-      experiences that hold my heart.
-    </p>
+    <p class="intro">A venture capital strategist, curious generalist, and enthusiastic instigator of unusual ideas. I work at the intersection of technology, creativity, and human connection, with a particular interest in how we build a future worth being excited about.</p>
+    <p class="intro">By day, I help ambitious ideas find their footing. By night, I'm usually building something strange, gathering interesting people, or conducting highly unscientific experiments in being alive.</p>
   </div>
 
   <div class="stage">
@@ -52,47 +48,16 @@
 
     <!-- The exploration buttons. Each one opens the panel with the matching id below. -->
     <nav class="explore" id="explore-buttons" aria-label="Explore">
-      <button class="pop" style="--i:0" data-panel="about">About</button>
-      <button class="pop" style="--i:1" data-panel="resume">Resume</button>
-      <button class="pop" style="--i:2" data-panel="projects">Personal Projects</button>
-      <button class="pop" style="--i:3" data-panel="van">Van Build</button>
-      <button class="pop" style="--i:4" data-panel="reading">Reading List</button>
+      <button class="pop" style="--i:0" data-panel="resume">Resume</button>
+      <button class="pop" style="--i:1" data-panel="projects">Personal Projects</button>
+      <button class="pop" style="--i:2" data-panel="van">Van Build</button>
+      <button class="pop" style="--i:3" data-panel="reading">Favorite Books</button>
     </nav>
   </div>
 </section>
 
 <!-- ═══════ PANELS (only one shows at a time) ═══════ -->
 <div class="panels" id="panels">
-
-  <!-- ═══════ ABOUT ═══════ -->
-  <section class="panel" id="about" hidden>
-    <h2 class="panel-title">About</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>
-          I studied liberal arts and think in systems. Usually I start with a question, then build
-          something to figure out the answer.
-        </p>
-        <p>
-          A lot of what I make is about taking an abstract topic like economics, money or time and
-          turning it into something a regular person can walk up to and try. At work that might be an
-          investor deck. Outside of work it's been a sorting hat for economic theories and a Lite-Brite
-          board at a civic festival.
-        </p>
-        <p>
-          I'm interested in financing models that don't depend on an exit, and in policy that puts a
-          price on environmental costs. I'm also studying Zen.
-        </p>
-      </div>
-
-      <!-- Flip cards. Front = the label, back = the detail. -->
-      <ul class="facts" aria-label="Quick facts">
-        <li><button class="fact"><span class="front">Working on</span><span class="back">Syn Syn, an investment residency for women, and more embroidered masks.</span></button></li>
-        <li><button class="fact"><span class="front">Favorite medium</span><span class="back">Things you can touch: pegboards, string art, mirrors, tea.</span></button></li>
-        <li><button class="fact"><span class="front">Tools</span><span class="back">Claude Code, Raspberry Pi, a MIDI controller, an embroidery hoop.</span></button></li>
-      </ul>
-    </div>
-  </section>
 
   <!-- ═══════ RESUME (each role is a dropdown) ═══════ -->
   <section class="panel" id="resume" hidden>
@@ -182,7 +147,7 @@
         <a class="card-title" href="https://aledajohnson.github.io/future-of-economics-website/">
           <span class="tag">installation</span>
           <h3>A.G.E.N.C.Y.</h3>
-          <p>A civic art piece for the Future of Us Festival. Visitors compare economic systems, plot their values, and talk to a terminal that gives them an "economic soul type."</p>
+          <p>A civic art piece for the Future of Us Festival, displayed in a physical, futuristic terminal. Visitors compare economic systems, plot their values, and talk to it for a personalized "economic soul type."</p>
         </a>
         <span class="stack">HTML · JS · Cloudflare · Claude API</span>
         <div class="card-links">
@@ -195,7 +160,7 @@
         <a class="card-title" href="https://aledajohnson.github.io/kiki-bouba/">
           <span class="tag">live voting</span>
           <h3>Kiki or Bouba?</h3>
-          <p>Visitors vote on whether a word sounds sharp or round. Votes update in real time.</p>
+          <p>A birthday party themed activity I built. Visitors vote on whether a word sounds sharp or round, with votes updating in real time.</p>
         </a>
         <span class="stack">HTML · JS · Supabase</span>
         <div class="card-links">
@@ -205,23 +170,10 @@
       </div>
 
       <div class="card">
-        <a class="card-title" href="https://aledajohnson.github.io/synsyn/">
-          <span class="tag">fund concept</span>
-          <h3>Syn Syn</h3>
-          <p>A syndicate fund where operators and platform leaders in venture join as GPs and share in the upside.</p>
-        </a>
-        <span class="stack">HTML · CSS · JS</span>
-        <div class="card-links">
-          <a href="https://aledajohnson.github.io/synsyn/">Visit site →</a>
-          <a href="https://github.com/aledajohnson/synsyn">GitHub</a>
-        </div>
-      </div>
-
-      <div class="card">
         <a class="card-title" href="https://aledajohnson.github.io/fool/">
           <span class="tag">community</span>
           <h3>Fool's Errand</h3>
-          <p>Site for a gathering where people pick a question, go down the rabbit hole, and make something.</p>
+          <p>A slow travel concept I'm exploring.</p>
         </a>
         <span class="stack">HTML · CSS</span>
         <div class="card-links">
@@ -243,9 +195,21 @@
         </div>
       </div>
 
+      <div class="card">
+        <a class="card-title" href="https://github.com/aledajohnson/rock-hall-of-fame">
+          <span class="tag">gift</span>
+          <h3>Rock Hall of Fame</h3>
+          <p>A birthday present for my mom.</p>
+        </a>
+        <span class="stack">HTML · JS · Netlify · Claude API</span>
+        <div class="card-links">
+          <a href="https://github.com/aledajohnson/rock-hall-of-fame">GitHub</a>
+        </div>
+      </div>
+
       <a class="card card-more" href="https://github.com/aledajohnson">
-        <h3>All projects →</h3>
-        <p>github.com/aledajohnson</p>
+        <h3>View GitHub</h3>
+        <p>Claude has helped me bring a lot of digital projects to life.</p>
       </a>
     </div>
 
@@ -310,38 +274,43 @@
        Each book is one <li>. data-note is what shows when someone clicks the spine.
        --h sets the spine height (try 150px to 230px) so the shelf looks uneven like a real one. -->
   <section class="panel" id="reading" hidden>
-    <h2 class="panel-title">Reading List</h2>
-    <p class="panel-sub">Pull something off the shelf.</p>
+    <h2 class="panel-title">Favorite Books</h2>
+    <p class="panel-sub">Pull something off the stack.</p>
 
-    <ul class="shelf">
-      <li><button class="spine" style="--h:190px" data-note="On the value of rethinking, staying curious, and arguing like you're right but listening like you're wrong.">
-        <span class="spine-title">Think Again</span><span class="spine-author">Adam Grant</span>
-      </button></li>
-      <li><button class="spine" style="--h:220px" data-note="Reimagines money and economics as tools for gift, connection and sacred exchange.">
-        <span class="spine-title">Sacred Economics</span><span class="spine-author">Charles Eisenstein</span>
-      </button></li>
-      <li><button class="spine" style="--h:170px" data-note="A case for degrowth: living well within planetary limits instead of chasing endless growth.">
-        <span class="spine-title">Less Is More</span><span class="spine-author">Jason Hickel</span>
-      </button></li>
-      <li><button class="spine" style="--h:230px" data-note="Zen reflections on the bodhisattva vows and how to meet a difficult world with care.">
-        <span class="spine-title">The World Could Be Otherwise</span><span class="spine-author">Norman Fischer</span>
-      </button></li>
-      <li><button class="spine" style="--h:200px" data-note="Indigenous wisdom and botany braided together into a case for reciprocity with the land.">
-        <span class="spine-title">Braiding Sweetgrass</span><span class="spine-author">Robin Wall Kimmerer</span>
-      </button></li>
-      <li><button class="spine" style="--h:160px" data-note="A biography of a taxonomist that turns into a meditation on order, chaos and categorizing the world.">
-        <span class="spine-title">Why Fish Don't Exist</span><span class="spine-author">Lulu Miller</span>
-      </button></li>
-      <li><button class="spine" style="--h:215px" data-note="The science of wellbeing, and what actually makes a life go well.">
-        <span class="spine-title">Flourish</span><span class="spine-author">Martin Seligman</span>
-      </button></li>
-      <li><button class="spine" style="--h:180px" data-note="How the design of everyday spaces and objects can spark real joy.">
-        <span class="spine-title">Joyful</span><span class="spine-author">Ingrid Fetell Lee</span>
-      </button></li>
-      <li><button class="spine" style="--h:205px" data-note="Creativity as a daily practice and a way of living, not just a way of making things.">
-        <span class="spine-title">The Creative Act</span><span class="spine-author">Rick Rubin</span>
-      </button></li>
-    </ul>
+    <div class="shelf">
+      <ul class="stack">
+        <li><button class="spine" data-note="On the value of rethinking, staying curious, and arguing like you're right but listening like you're wrong.">
+          <span class="spine-title">Think Again</span><span class="spine-author">Adam Grant</span>
+        </button></li>
+        <li><button class="spine" data-note="Reimagines money and economics as tools for gift, connection and sacred exchange.">
+          <span class="spine-title">Sacred Economics</span><span class="spine-author">Charles Eisenstein</span>
+        </button></li>
+        <li><button class="spine" data-note="A case for degrowth: living well within planetary limits instead of chasing endless growth.">
+          <span class="spine-title">Less Is More</span><span class="spine-author">Jason Hickel</span>
+        </button></li>
+        <li><button class="spine" data-note="Zen reflections on the bodhisattva vows and how to meet a difficult world with care.">
+          <span class="spine-title">The World Could Be Otherwise</span><span class="spine-author">Norman Fischer</span>
+        </button></li>
+        <li><button class="spine" data-note="Indigenous wisdom and botany braided together into a case for reciprocity with the land.">
+          <span class="spine-title">Braiding Sweetgrass</span><span class="spine-author">Robin Wall Kimmerer</span>
+        </button></li>
+      </ul>
+
+      <ul class="stack">
+        <li><button class="spine" data-note="A biography of a taxonomist that turns into a meditation on order, chaos and categorizing the world.">
+          <span class="spine-title">Why Fish Don't Exist</span><span class="spine-author">Lulu Miller</span>
+        </button></li>
+        <li><button class="spine" data-note="The science of wellbeing, and what actually makes a life go well.">
+          <span class="spine-title">Flourish</span><span class="spine-author">Martin Seligman</span>
+        </button></li>
+        <li><button class="spine" data-note="How the design of everyday spaces and objects can spark real joy.">
+          <span class="spine-title">Joyful</span><span class="spine-author">Ingrid Fetell Lee</span>
+        </button></li>
+        <li><button class="spine" data-note="Creativity as a daily practice and a way of living, not just a way of making things.">
+          <span class="spine-title">The Creative Act</span><span class="spine-author">Rick Rubin</span>
+        </button></li>
+      </ul>
+    </div>
     <p class="shelf-note" id="shelf-note" aria-live="polite"></p>
   </section>
 
