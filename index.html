@@ -27,28 +27,31 @@
 
 <main id="top">
 
-<!-- ═══════ HERO: intro text over a moving-clouds panel + a menu that scrolls to each section ═══════ -->
+<!-- ═══════ HERO: intro text on the left, a moving-clouds menu panel on the right ═══════ -->
 <section class="hero">
   <div class="hero-left">
-    <!-- The clouds are images/clouds-far.svg and images/clouds-near.svg, looping. -->
-    <div class="hero-clouds" aria-hidden="true">
-      <span class="clouds far"></span>
-      <span class="clouds near"></span>
-    </div>
     <div class="hero-text">
-      <h1>hello, I'm Aleda</h1>
+      <img class="hero-photo" src="images/aleda-weld.jpg" alt="Aleda holding up an octagonal steel frame she welded">
+      <h1>Hello, I'm Aleda</h1>
       <p class="intro">A venture capital strategist, curious generalist, and enthusiastic instigator of unusual ideas. I work at the intersection of technology, creativity, and human connection, with a particular interest in how we build a future worth being excited about.</p>
       <p class="intro">By day, I help ambitious ideas find their footing. By night, I'm usually building something strange, gathering interesting people, or conducting highly unscientific experiments in being alive.</p>
     </div>
   </div>
 
-  <!-- Scrolls straight to the matching section below, since everything lives on one page now. -->
-  <nav class="hero-menu" aria-label="Explore">
-    <a class="menu-item" href="#resume">Resume</a>
-    <a class="menu-item" href="#projects">Personal Projects</a>
-    <a class="menu-item" href="#van">Van Build</a>
-    <a class="menu-item" href="#reading">Favorite Books</a>
-  </nav>
+  <div class="hero-right">
+    <!-- The clouds are images/clouds-far.svg and images/clouds-near.svg, looping. -->
+    <div class="hero-clouds" aria-hidden="true">
+      <span class="clouds far"></span>
+      <span class="clouds near"></span>
+    </div>
+    <!-- Scrolls straight to the matching section below, since everything lives on one page now. -->
+    <nav class="hero-menu" aria-label="Explore">
+      <a class="menu-item" href="#resume">Resume</a>
+      <a class="menu-item" href="#projects">Personal Projects</a>
+      <a class="menu-item" href="#van">Van Build</a>
+      <a class="menu-item" href="#reading">Favorite Books</a>
+    </nav>
+  </div>
 </section>
 
 <!-- ═══════ PANELS (stacked, one page you scroll down) ═══════ -->

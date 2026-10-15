@@ -71,15 +71,34 @@ button { font: inherit; color: inherit; }
   display: grid; grid-template-columns: 1fr auto; align-items: stretch; gap: 32px;
 }
 
-/* ═══════ HERO LEFT: intro text over a moving-clouds panel ═══════ */
+/* ═══════ HERO LEFT: intro text, plain background for legibility ═══════ */
 .hero-left {
+  display: flex; align-items: center;
+  padding: 56px;
+}
+.hero-text { max-width: 48ch; }
+.hero-photo {
+  width: 130px; height: 130px;
+  object-fit: cover; object-position: 50% 32%;
+  clip-path: polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%);
+  margin-bottom: 24px;
+  filter: drop-shadow(0 10px 24px rgba(12, 22, 51, .35));
+}
+.hero-text h1 {
+  font: 400 clamp(44px, 6vw, 84px)/1 var(--sans); letter-spacing: -0.04em; margin: 0 0 24px;
+  color: var(--ink);
+}
+.intro { font-size: clamp(16px, 1.6vw, 19px); line-height: 1.7; margin: 0 0 20px; color: var(--ink-soft); }
+
+/* ═══════ HERO RIGHT: moving-clouds panel behind the menu ═══════ */
+.hero-right {
   position: relative;
   overflow: hidden;
   border-radius: 28px;
   background: linear-gradient(170deg, #062f86 0%, #0d55c9 40%, #4f92f2 75%, #a9cdfc 100%);
   box-shadow: 0 45px 80px -25px rgba(0, 45, 110, .5), inset 0 0 60px rgba(255, 255, 255, .12);
-  display: flex; align-items: center;
-  padding: 56px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 40px;
 }
 .hero-clouds { position: absolute; inset: 0; }
 /* Two cloud layers loop sideways forever. Each layer is two tiles wide and slides
@@ -94,18 +113,9 @@ button { font: inherit; color: inherit; }
 .clouds.far  { background-image: url("images/clouds-far.svg");  opacity: .55; animation-duration: 80s; }
 .clouds.near { background-image: url("images/clouds-near.svg"); animation-duration: 38s; }
 @keyframes pass { to { transform: translateX(-50%); } }
-.hero-text { position: relative; z-index: 1; max-width: 48ch; }
-.hero-text h1 {
-  font: 400 clamp(44px, 6vw, 84px)/1 var(--sans); letter-spacing: -0.04em; margin: 0 0 24px;
-  color: #fff; text-shadow: 0 2px 20px rgba(0, 20, 60, .45);
-}
-.intro {
-  font-size: clamp(16px, 1.6vw, 19px); line-height: 1.7; margin: 0 0 20px;
-  color: rgba(255, 255, 255, .92); text-shadow: 0 1px 12px rgba(0, 20, 60, .35);
-}
 
 /* ═══════ HERO MENU: scrolls to each section below ═══════ */
-.hero-menu { display: flex; flex-direction: column; justify-content: center; gap: 14px; min-width: 220px; }
+.hero-menu { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; gap: 14px; min-width: 220px; }
 .menu-item {
   font: 500 19px var(--sans);
   text-decoration: none;
@@ -250,7 +260,7 @@ button { font: inherit; color: inherit; }
 .lb-prev { left: 20px; top: 50%; translate: 0 -50%; }
 .lb-next { right: 20px; top: 50%; translate: 0 -50%; }
 
-/* ═══════ FAVORITE BOOKS (two toppled stacks) ═══════ */
+/* ═══════ FAVORITE BOOKS (two straight stacks) ═══════ */
 .shelf { display: grid; grid-template-columns: repeat(2, minmax(260px, 1fr)); gap: 48px; align-items: start; }
 .stack { list-style: none; margin: 0; padding: 0; }
 .stack li { margin-top: -12px; }
@@ -267,8 +277,6 @@ button { font: inherit; color: inherit; }
   text-align: left;
   transition: translate .3s cubic-bezier(.2, 1.4, .4, 1), box-shadow .2s;
 }
-.stack li:nth-child(odd) .spine { rotate: -1.5deg; }
-.stack li:nth-child(even) .spine { rotate: 1.5deg; }
 .stack li:nth-child(4n+2) .spine { background: var(--sky); }
 .stack li:nth-child(4n+3) .spine { background: var(--cobalt-deep); }
 .stack li:nth-child(4n+4) .spine { background: var(--ice); color: var(--cobalt-deep); }
@@ -301,6 +309,7 @@ button { font: inherit; color: inherit; }
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; gap: 24px; padding: 32px 16px 48px; min-height: 0; }
   .hero-left { padding: 36px 28px; }
+  .hero-right { padding: 28px; }
   .hero-text h1 { margin-bottom: 20px; }
   .hero-menu { flex-direction: row; flex-wrap: wrap; justify-content: center; min-width: 0; }
   .menu-item { flex: 1 1 auto; }
