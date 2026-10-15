@@ -15,8 +15,7 @@ Every sentence on the site is in **`index.html`**, in page order. Each section s
 | `SEARCH RESULTS & LINK PREVIEWS` | `<title>`, description and preview text: what Google and Slack link previews show. |
 | `HERO` | A small circular photo, "Hello, I'm Aleda" and the intro paragraphs, plus the menu on the right that scrolls to each section below. |
 | `RESUME` | Each role is a `<details>` dropdown. Add `open` to one to have it start expanded. |
-| `PERSONAL PROJECTS` | One `<div class="card">` per project, plus a row of `<div class="art-block">` entries under "Art Builds". |
-| `VAN BUILD` | Photo gallery. See below. |
+| `PERSONAL PROJECTS` | One `<div class="card">` per project, a row of `<div class="art-block">` entries under "Art Builds", and the Van Build photo gallery below that. |
 | `FAVORITE BOOKS` | One `<li>` per book, split across two `<ul class="stack">` columns. `data-note` is what shows when someone clicks it. |
 | `FOOTER / CONTACT` | LinkedIn, GitHub, resume link |
 
@@ -28,7 +27,7 @@ The whole page is one continuous scroll now — every section is always in the D
 
 **Art Build photos:** same idea, in `images/art/<folder>/01.jpg` through `03.jpg` — one folder per piece.
 
-**Linking straight to a section:** `aledajohnson.github.io/#van` scrolls straight to the Van Build section on load. Same for `#resume`, `#projects`, `#reading`.
+**Linking straight to a section:** `aledajohnson.github.io/#van` scrolls straight to the Van Build group (it lives inside Personal Projects now, but keeps its own anchor). Same for `#resume`, `#projects`, `#reading`.
 
 Other files you mostly won't touch:
 

@@ -65,11 +65,21 @@ button { font: inherit; color: inherit; }
 .hero-text { max-width: 48ch; }
 .hero-name { display: flex; align-items: center; gap: 24px; margin-bottom: 28px; }
 .hero-photo {
+  position: relative;
   width: clamp(96px, 9vw, 140px); height: clamp(96px, 9vw, 140px); flex-shrink: 0;
   border-radius: 50%;
-  object-fit: cover; object-position: 50% 50%;
+  overflow: hidden;
+  cursor: pointer;
   box-shadow: 0 0 0 4px var(--paper), 0 0 0 6px var(--line), 0 10px 22px -8px rgba(12, 22, 51, .4);
 }
+.hero-photo img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 50%;
+  transition: opacity .4s ease;
+}
+.hero-photo .photo-hover { opacity: 0; }
+.hero-photo:hover .photo-hover, .hero-photo:focus-within .photo-hover { opacity: 1; }
 .hero-text h1 {
   font: 400 clamp(44px, 6vw, 84px)/1 var(--sans); letter-spacing: -0.04em; margin: 0;
   color: var(--ink);
@@ -162,6 +172,7 @@ button { font: inherit; color: inherit; }
 .card-more p { color: var(--on-cobalt); opacity: .8; font-family: var(--mono); flex: 0; }
 .card-more h3 { font-size: 30px; }
 .group-title { font: 600 15px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); margin: 48px 0 20px; }
+.group-sub { color: var(--ink-soft); margin: -12px 0 20px; font: 400 14px var(--mono); }
 .art-blocks { display: flex; flex-direction: column; gap: 40px; }
 .art-block {
   display: flex; flex-direction: column; gap: 14px;
