@@ -65,42 +65,21 @@ button { font: inherit; color: inherit; }
 
 /* ═══════ HERO ═══════ */
 .hero {
+  position: relative;
+  overflow: hidden;
   max-width: 1200px; margin: 0 auto;
   min-height: calc(100vh - 64px);
   padding: 24px;
-  display: grid; grid-template-columns: 1fr auto; align-items: stretch; gap: 32px;
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 32px;
 }
-
-/* ═══════ HERO LEFT: intro text, plain background for legibility ═══════ */
-.hero-left {
-  display: flex; align-items: center;
-  padding: 56px;
+/* Faint moving clouds sit behind the whole hero, bounded in height so they
+   don't stretch tall or thin as the layout changes. */
+.hero-clouds {
+  position: absolute; left: 0; right: 0; top: 50%; translate: 0 -50%;
+  height: min(420px, 60%);
+  opacity: .14;
+  pointer-events: none;
 }
-.hero-text { max-width: 48ch; }
-.hero-photo {
-  width: 130px; height: 130px;
-  object-fit: cover; object-position: 50% 32%;
-  clip-path: polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%);
-  margin-bottom: 24px;
-  filter: drop-shadow(0 10px 24px rgba(12, 22, 51, .35));
-}
-.hero-text h1 {
-  font: 400 clamp(44px, 6vw, 84px)/1 var(--sans); letter-spacing: -0.04em; margin: 0 0 24px;
-  color: var(--ink);
-}
-.intro { font-size: clamp(16px, 1.6vw, 19px); line-height: 1.7; margin: 0 0 20px; color: var(--ink-soft); }
-
-/* ═══════ HERO RIGHT: moving-clouds panel behind the menu ═══════ */
-.hero-right {
-  position: relative;
-  overflow: hidden;
-  border-radius: 28px;
-  background: linear-gradient(170deg, #062f86 0%, #0d55c9 40%, #4f92f2 75%, #a9cdfc 100%);
-  box-shadow: 0 45px 80px -25px rgba(0, 45, 110, .5), inset 0 0 60px rgba(255, 255, 255, .12);
-  display: flex; align-items: center; justify-content: center;
-  padding: 40px;
-}
-.hero-clouds { position: absolute; inset: 0; }
 /* Two cloud layers loop sideways forever. Each layer is two tiles wide and slides
    left by one tile, so the loop is seamless. Bigger number = slower clouds. */
 .clouds {
@@ -114,8 +93,25 @@ button { font: inherit; color: inherit; }
 .clouds.near { background-image: url("images/clouds-near.svg"); animation-duration: 38s; }
 @keyframes pass { to { transform: translateX(-50%); } }
 
+/* ═══════ HERO LEFT: name + intro text ═══════ */
+.hero-left { position: relative; z-index: 1; display: flex; align-items: center; padding: 56px; }
+.hero-text { max-width: 48ch; }
+.hero-name { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
+.hero-photo {
+  width: 64px; height: 64px; flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover; object-position: 50% 28%;
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 5px var(--line), 0 8px 18px -8px rgba(12, 22, 51, .4);
+}
+.hero-text h1 {
+  font: 400 clamp(44px, 6vw, 84px)/1 var(--sans); letter-spacing: -0.04em; margin: 0;
+  color: var(--ink);
+}
+.intro { font-size: clamp(16px, 1.6vw, 19px); line-height: 1.7; margin: 0 0 20px; color: var(--ink-soft); }
+
 /* ═══════ HERO MENU: scrolls to each section below ═══════ */
-.hero-menu { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; gap: 14px; min-width: 220px; }
+.hero-right { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; padding: 40px; }
+.hero-menu { display: flex; flex-direction: column; justify-content: center; gap: 14px; min-width: 220px; }
 .menu-item {
   font: 500 19px var(--sans);
   text-decoration: none;
