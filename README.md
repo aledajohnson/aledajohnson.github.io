@@ -8,29 +8,32 @@ Live at: **https://aledajohnson.github.io**
 
 ## Where the copy lives
 
-Every sentence on the site is in **`index.html`**, in page order. Each section starts with a banner comment like `<!-- ═══════ ABOUT ═══════ -->` so you can find it by scrolling.
+Every sentence on the site is in **`index.html`**, in page order. Each section starts with a banner comment like `<!-- ═══════ RESUME ═══════ -->` so you can find it by scrolling.
 
 | Section in `index.html` | What's in it |
 |---|---|
 | `SEARCH RESULTS & LINK PREVIEWS` | `<title>`, description and preview text: what Google and Slack link previews show. |
-| `HERO` | "hello," the intro lines, the hint, the mirror, and the pop-out buttons. Each button's `data-panel` matches a panel `id` below. |
-| `ABOUT` | Three paragraphs and the flip cards (`front` = label, `back` = detail) |
+| `HERO` | "hello, I'm Aleda" and the intro paragraphs, over a moving-clouds panel, plus the menu on the right that scrolls to each section below. |
 | `RESUME` | Each role is a `<details>` dropdown. Add `open` to one to have it start expanded. |
-| `PERSONAL PROJECTS` | One `<a class="card">` per project |
+| `PERSONAL PROJECTS` | One `<div class="card">` per project, plus a row of `<div class="art-block">` entries under "Art Builds". |
 | `VAN BUILD` | Photo gallery. See below. |
-| `READING LIST` | One `<li>` per book. `data-note` is what shows when someone clicks it; `--h` is the spine height. |
-| `FOOTER / CONTACT` | Email, GitHub, resume link |
+| `FAVORITE BOOKS` | One `<li>` per book, split across two `<ul class="stack">` columns. `data-note` is what shows when someone clicks it. |
+| `FOOTER / CONTACT` | LinkedIn, GitHub, resume link |
 
-**Adding a button:** copy a `<button class="pop">` in the hero, give it a new `data-panel`, bump `--i`, and add a `<section class="panel" id="..." hidden>` with that id. Buttons 6+ need a position in `styles.css` under `BUTTONS THAT POP OUT`.
+The whole page is one continuous scroll now — every section is always in the DOM (no more show/hide), so the hero menu and header are just anchor links (`href="#resume"` etc.) to each section's `id`.
 
-**Van photos:** drop them in `images/van/` named `01.jpg`, `02.jpg`, and so on. Keep each under ~500 KB (resize to ~1600px wide). Six slots are set up; copy a `<figure>` to add more. Missing photos show as an empty tile, so delete any `<figure>` you don't use. Add a caption with `<figcaption>...</figcaption>` inside a figure.
+**Adding a menu link:** copy an `<a class="menu-item">` in the hero and point its `href` at a section `id` below.
 
-**Linking straight to a section:** `aledajohnson.github.io/#van` opens with the Van Build panel showing. Same for `#about`, `#resume`, `#projects`, `#reading`.
+**Van photos:** drop them in `images/van/` named `01.jpg`, `02.jpg`, and so on. Keep each under ~500 KB (resize to ~1600px wide). Missing photos show as an empty tile, so delete any `<figure>` you don't use. Add a caption with `<figcaption>...</figcaption>` inside a figure.
+
+**Art Build photos:** same idea, in `images/art/<folder>/01.jpg` through `03.jpg` — one folder per piece.
+
+**Linking straight to a section:** `aledajohnson.github.io/#van` scrolls straight to the Van Build section on load. Same for `#resume`, `#projects`, `#reading`.
 
 Other files you mostly won't touch:
 
 - **`styles.css`**: all the design. Colors and fonts are at the top under `COLORS & TYPE`.
-- **`script.js`**: the mirror, panels, gallery viewer and bookshelf. No copy in here.
+- **`script.js`**: the header hairline, gallery viewer and book stack. No copy in here.
 - **`Aleda_Johnson_Resume.pdf`**: replace the file with the same name to update it.
 - **`favicon.svg`**: the tab icon.
 
@@ -49,5 +52,5 @@ Already set up if the repo is named `aledajohnson.github.io`. If you ever need t
 ## Gotchas
 
 - Fonts load from Google Fonts. If you add a weight, update the `<link>` in the `<head>`.
-- Phone number is deliberately not on the public site.
-- With "reduce motion" turned on, the mirror stops floating and the buttons appear without animating.
+- Phone number and email are deliberately not on the public site — contact is LinkedIn/GitHub only.
+- With "reduce motion" turned on, animations and smooth-scrolling are skipped.

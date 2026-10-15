@@ -27,40 +27,35 @@
 
 <main id="top">
 
-<!-- ═══════ HERO: intro text + the mirror + the buttons that pop out of it ═══════ -->
+<!-- ═══════ HERO: intro text over a moving-clouds panel + a menu that scrolls to each section ═══════ -->
 <section class="hero">
-  <div class="hero-text">
-    <h1>hello,</h1>
-    <p class="intro">A venture capital strategist, curious generalist, and enthusiastic instigator of unusual ideas. I work at the intersection of technology, creativity, and human connection, with a particular interest in how we build a future worth being excited about.</p>
-    <p class="intro">By day, I help ambitious ideas find their footing. By night, I'm usually building something strange, gathering interesting people, or conducting highly unscientific experiments in being alive.</p>
+  <div class="hero-left">
+    <!-- The clouds are images/clouds-far.svg and images/clouds-near.svg, looping. -->
+    <div class="hero-clouds" aria-hidden="true">
+      <span class="clouds far"></span>
+      <span class="clouds near"></span>
+    </div>
+    <div class="hero-text">
+      <h1>hello, I'm Aleda</h1>
+      <p class="intro">A venture capital strategist, curious generalist, and enthusiastic instigator of unusual ideas. I work at the intersection of technology, creativity, and human connection, with a particular interest in how we build a future worth being excited about.</p>
+      <p class="intro">By day, I help ambitious ideas find their footing. By night, I'm usually building something strange, gathering interesting people, or conducting highly unscientific experiments in being alive.</p>
+    </div>
   </div>
 
-  <div class="stage">
-    <!-- The mirror. The clouds inside are images/clouds-far.svg and images/clouds-near.svg, looping. -->
-    <button class="mirror" id="mirror" aria-expanded="false" aria-controls="explore-buttons" aria-label="Open the menu">
-      <span class="sky" aria-hidden="true">
-        <span class="clouds far"></span>
-        <span class="clouds near"></span>
-      </span>
-      <span class="glare" aria-hidden="true"></span>
-      <span class="mirror-label" aria-hidden="true">explore</span>
-    </button>
-
-    <!-- The exploration buttons. Each one opens the panel with the matching id below. -->
-    <nav class="explore" id="explore-buttons" aria-label="Explore">
-      <button class="pop" style="--i:0" data-panel="resume">Resume</button>
-      <button class="pop" style="--i:1" data-panel="projects">Personal Projects</button>
-      <button class="pop" style="--i:2" data-panel="van">Van Build</button>
-      <button class="pop" style="--i:3" data-panel="reading">Favorite Books</button>
-    </nav>
-  </div>
+  <!-- Scrolls straight to the matching section below, since everything lives on one page now. -->
+  <nav class="hero-menu" aria-label="Explore">
+    <a class="menu-item" href="#resume">Resume</a>
+    <a class="menu-item" href="#projects">Personal Projects</a>
+    <a class="menu-item" href="#van">Van Build</a>
+    <a class="menu-item" href="#reading">Favorite Books</a>
+  </nav>
 </section>
 
-<!-- ═══════ PANELS (only one shows at a time) ═══════ -->
+<!-- ═══════ PANELS (stacked, one page you scroll down) ═══════ -->
 <div class="panels" id="panels">
 
   <!-- ═══════ RESUME (each role is a dropdown) ═══════ -->
-  <section class="panel" id="resume" hidden>
+  <section class="panel" id="resume">
     <div class="panel-head">
       <h2 class="panel-title">Resume</h2>
       <a class="pill" href="Aleda_Johnson_Resume.pdf">Download PDF</a>
@@ -139,7 +134,7 @@
   </section>
 
   <!-- ═══════ PERSONAL PROJECTS (sites on GitHub) ═══════ -->
-  <section class="panel" id="projects" hidden>
+  <section class="panel" id="projects">
     <h2 class="panel-title">Personal Projects</h2>
 
     <div class="cards">
@@ -256,7 +251,7 @@
        To add more, copy a <figure> block and bump the number.
        Captions are optional: add <figcaption>Your caption</figcaption> inside a figure.
        Any photo that's missing shows as an empty tile until you add it. -->
-  <section class="panel" id="van" hidden>
+  <section class="panel" id="van">
     <h2 class="panel-title">Van Build</h2>
     <p class="panel-sub">A pandemic project. Lots of YouTube learning.</p>
 
@@ -273,7 +268,7 @@
   <!-- ═══════ READING LIST ═══════
        Each book is one <li>. data-note is what shows when someone clicks the spine.
        --h sets the spine height (try 150px to 230px) so the shelf looks uneven like a real one. -->
-  <section class="panel" id="reading" hidden>
+  <section class="panel" id="reading">
     <h2 class="panel-title">Favorite Books</h2>
     <p class="panel-sub">Pull something off the stack.</p>
 

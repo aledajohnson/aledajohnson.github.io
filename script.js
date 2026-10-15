@@ -1,60 +1,10 @@
 // Everything interactive lives here. No copy lives here: all text is in index.html.
-const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ── Header hairline once you scroll ──
 const header = document.querySelector('.site-header');
 const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
-
-// ── The mirror: click to pop the buttons out ──
-const stage = document.querySelector('.stage');
-const mirror = document.getElementById('mirror');
-
-function setOpen(open) {
-  stage.classList.toggle('open', open);
-  mirror.setAttribute('aria-expanded', open);
-  mirror.setAttribute('aria-label', open ? 'Close the menu' : 'Open the menu');
-}
-mirror.addEventListener('click', () => setOpen(!stage.classList.contains('open')));
-
-// The sky inside the mirror shifts a little toward the cursor
-if (!reduced) {
-  document.querySelector('.hero').addEventListener('pointermove', e => {
-    const r = mirror.getBoundingClientRect();
-    const dx = (e.clientX - (r.left + r.width / 2)) / window.innerWidth;
-    const dy = (e.clientY - (r.top + r.height / 2)) / window.innerHeight;
-    mirror.style.setProperty('--mx', `${dx * -30}px`);
-    mirror.style.setProperty('--my', `${dy * -30}px`);
-  });
-}
-
-// ── Buttons open one panel at a time ──
-const pops = [...document.querySelectorAll('.pop')];
-const panels = [...document.querySelectorAll('.panel')];
-
-function showPanel(id, scroll = true) {
-  const target = document.getElementById(id);
-  if (!target) return;
-  panels.forEach(p => { p.hidden = p !== target; });
-  pops.forEach(b => b.setAttribute('aria-current', b.dataset.panel === id));
-  history.replaceState(null, '', '#' + id);
-  if (scroll) target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
-}
-pops.forEach(b => b.addEventListener('click', () => showPanel(b.dataset.panel)));
-
-// A link like aledajohnson.github.io/#van opens straight to that panel
-const fromHash = location.hash.slice(1);
-if (fromHash && document.getElementById(fromHash)?.classList.contains('panel')) {
-  setOpen(true);
-  showPanel(fromHash, false);
-}
-
-// ── About: flip cards ──
-document.querySelectorAll('.fact').forEach(btn => {
-  btn.setAttribute('aria-pressed', 'false');
-  btn.addEventListener('click', () => btn.setAttribute('aria-pressed', btn.classList.toggle('flipped')));
-});
 
 // ── Van Build: empty tiles for missing photos, and a big-photo viewer ──
 const photos = [...document.querySelectorAll('.photo')];
@@ -92,7 +42,7 @@ lightbox.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') openPhoto(current + 1);
 });
 
-// ── Reading List: pull a book off the shelf ──
+// ── Favorite Books: pull a book off the stack ──
 const note = document.getElementById('shelf-note');
 const spines = [...document.querySelectorAll('.spine')];
 spines.forEach(s => {
