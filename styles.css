@@ -89,29 +89,36 @@ button { font: inherit; color: inherit; }
 /* ═══════ HERO MENU: real sticker artwork that drops onto the hero on load ═══════ */
 .hero-right { display: flex; align-items: center; justify-content: center; padding: 40px; }
 .hero-menu { display: flex; flex-direction: column; justify-content: center; gap: 20px; min-width: 220px; }
+/* The drop-in animation lives on the <a> and is never touched again after
+   load. The wiggle lives on the <img> inside it instead — two different
+   elements, so toggling one on hover can never restart the other (that
+   was the cause of the flicker: hover used to replace the whole
+   `animation` shorthand on the SAME element that was still "holding"
+   the entrance animation, which restarted it). */
 .menu-item {
   display: block;
   width: 320px;
   margin: 0 auto;
-  filter: drop-shadow(4px 8px 10px rgba(12, 22, 51, .35));
   transform: rotate(var(--rot, 0deg));
-  transform-origin: center;
-  transition: filter .2s;
   animation: sticker-drop .65s cubic-bezier(.17, .89, .32, 1.49) both;
   animation-delay: calc(var(--i, 0) * 130ms);
 }
-.menu-item img { display: block; width: 100%; height: auto; }
+.menu-item img {
+  display: block; width: 100%; height: auto;
+  filter: drop-shadow(4px 8px 10px rgba(12, 22, 51, .35));
+  transition: filter .2s;
+}
 .menu-item:nth-child(1) { --i: 0; --rot: -4deg; }
 .menu-item:nth-child(2) { --i: 1; --rot: 3deg; }
 .menu-item:nth-child(3) { --i: 2; --rot: -3deg; }
-.menu-item:hover, .menu-item:focus-visible {
+.menu-item:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 4px; }
+.menu-item:hover img, .menu-item:focus-visible img {
   filter: drop-shadow(6px 14px 16px rgba(12, 22, 51, .4));
   animation: sticker-wiggle .45s ease-in-out;
-  outline: none;
 }
-.menu-item:active {
+.menu-item:active img {
   filter: drop-shadow(2px 4px 6px rgba(12, 22, 51, .35));
-  transform: rotate(var(--rot, 0deg)) scale(.98);
+  transform: scale(.98);
 }
 @keyframes sticker-drop {
   from { transform: translateY(-160px) rotate(0deg); opacity: 0; }
@@ -120,11 +127,11 @@ button { font: inherit; color: inherit; }
 /* Rotate-only, scaled from center, so the box never shifts under the
    cursor (translating it caused a hover/un-hover flicker loop). */
 @keyframes sticker-wiggle {
-  0%   { transform: rotate(var(--rot, 0deg)) scale(1); }
-  25%  { transform: rotate(calc(var(--rot, 0deg) - 3deg)) scale(1.03); }
-  50%  { transform: rotate(calc(var(--rot, 0deg) + 2.5deg)) scale(1.03); }
-  75%  { transform: rotate(calc(var(--rot, 0deg) - 1.5deg)) scale(1.03); }
-  100% { transform: rotate(var(--rot, 0deg)) scale(1.03); }
+  0%   { transform: rotate(0deg) scale(1); }
+  25%  { transform: rotate(-3deg) scale(1.03); }
+  50%  { transform: rotate(2.5deg) scale(1.03); }
+  75%  { transform: rotate(-1.5deg) scale(1.03); }
+  100% { transform: rotate(0deg) scale(1.03); }
 }
 
 /* ═══════ PANELS ═══════ */
