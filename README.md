@@ -21,7 +21,7 @@ Every sentence on the site is in **`index.html`**, in page order. Each section s
 
 The whole page is one continuous scroll now — every section is always in the DOM (no more show/hide), so the hero menu and header are just anchor links (`href="#resume"` etc.) to each section's `id`.
 
-**Adding a menu link:** copy an `<a class="menu-item">` in the hero and point its `href` at a section `id` below.
+**Adding a menu link:** the hero menu buttons are sticker artwork (PNGs with transparent backgrounds) in `images/stickers/`. Copy an `<a class="menu-item">` in the hero, point its `href` at a section `id` below, and swap in a new image.
 
 **Van photos:** drop them in `images/van/` named `01.jpg`, `02.jpg`, and so on. Keep each under ~500 KB (resize to ~1600px wide). Missing photos show as an empty tile, so delete any `<figure>` you don't use. Add a caption with `<figcaption>...</figcaption>` inside a figure.
 
