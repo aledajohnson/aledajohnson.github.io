@@ -86,22 +86,39 @@ button { font: inherit; color: inherit; }
 }
 .intro { font-size: clamp(16px, 1.6vw, 19px); line-height: 1.7; margin: 0 0 20px; color: var(--ink-soft); }
 
-/* ═══════ HERO MENU: scrolls to each section below ═══════ */
+/* ═══════ HERO MENU: stickers that drop onto the hero on load ═══════ */
 .hero-right { display: flex; align-items: center; justify-content: center; padding: 40px; }
-.hero-menu { display: flex; flex-direction: column; justify-content: center; gap: 14px; min-width: 220px; }
+.hero-menu { display: flex; flex-direction: column; justify-content: center; gap: 18px; min-width: 220px; }
 .menu-item {
-  font: 500 19px var(--sans);
+  font: 600 19px var(--sans);
   text-decoration: none;
   text-align: center;
   padding: 16px 24px;
   border-radius: 999px;
-  border: 1.5px solid rgba(0, 71, 171, .35);
+  border: 2.5px solid var(--ink);
   background: var(--paper);
-  box-shadow: 0 8px 24px -10px rgba(0, 45, 110, .25), inset 0 1px 0 rgba(255, 255, 255, .7);
-  transition: background .2s, color .2s, transform .2s;
+  box-shadow: 5px 5px 0 var(--cobalt);
+  transform: rotate(var(--rot, 0deg));
+  transition: transform .2s, box-shadow .2s;
+  animation: sticker-drop .65s cubic-bezier(.17, .89, .32, 1.49) both;
+  animation-delay: calc(var(--i, 0) * 130ms);
 }
-.menu-item:hover, .menu-item:focus-visible { background: var(--paper-2); transform: translateX(4px); outline: none; }
-.menu-item:active { transform: translateX(4px) scale(.98); }
+.menu-item:nth-child(1) { --i: 0; --rot: -3deg; }
+.menu-item:nth-child(2) { --i: 1; --rot: 2deg; }
+.menu-item:nth-child(3) { --i: 2; --rot: -2deg; }
+.menu-item:hover, .menu-item:focus-visible {
+  box-shadow: 7px 7px 0 var(--cobalt);
+  transform: translate(-2px, -2px) rotate(var(--rot, 0deg));
+  outline: none;
+}
+.menu-item:active {
+  box-shadow: 2px 2px 0 var(--cobalt);
+  transform: translate(2px, 2px) rotate(var(--rot, 0deg));
+}
+@keyframes sticker-drop {
+  from { transform: translateY(-160px) rotate(0deg); opacity: 0; }
+  to   { transform: translateY(0) rotate(var(--rot, 0deg)); opacity: 1; }
+}
 
 /* ═══════ PANELS ═══════ */
 .panels { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
